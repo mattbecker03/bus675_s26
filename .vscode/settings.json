@@ -1,5 +1,10 @@
 {
-  "github.copilot.enable": {"*": false},
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  },
     "workbench.colorCustomizations": {
         "terminal.background": "#1e1e1e",
         "terminal.foreground": "#d4d4d4",
