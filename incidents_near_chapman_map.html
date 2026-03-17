@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_c7bc321ece08f95ebe72d0e84425c029 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    
+                    <style>
+                        .foliumtooltip {
+                            
+                        }
+                       .foliumtooltip table{
+                            margin: auto;
+                        }
+                        .foliumtooltip tr{
+                            text-align: left;
+                        }
+                        .foliumtooltip th{
+                            padding: 2px; padding-right: 8px;
+                        }
+                    </style>
+            
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_c7bc321ece08f95ebe72d0e84425c029" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_c7bc321ece08f95ebe72d0e84425c029 = L.map(
+                "map_c7bc321ece08f95ebe72d0e84425c029",
+                {
+                    center: [40.88434999999999, -78.88759999999999],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 10,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_c7bc321ece08f95ebe72d0e84425c029);
+
+            
+
+        
+    
+            var tile_layer_5e5048197c297a22a3d5144ed30fd6f0 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_5e5048197c297a22a3d5144ed30fd6f0.addTo(map_c7bc321ece08f95ebe72d0e84425c029);
+        
+    
+            map_c7bc321ece08f95ebe72d0e84425c029.fitBounds(
+                [[40.60779999999998, -79.24480000000001], [41.1609, -78.53039999999999]],
+                {}
+            );
+        
+    
+        function geo_json_2f7c9d44ecf7f292d93e0941bf48e870_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "red", "fillColor": "red", "fillOpacity": 0.5, "weight": 2};
+            }
+        }
+        function geo_json_2f7c9d44ecf7f292d93e0941bf48e870_highlighter(feature) {
+            switch(feature.id) {
+                default:
+                    return {"fillOpacity": 0.75};
+            }
+        }
+        function geo_json_2f7c9d44ecf7f292d93e0941bf48e870_pointToLayer(feature, latlng) {
+            var opts = {
+  "stroke": true,
+  "color": "#3388ff",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#3388ff",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 2,
+};
+            
+            let style = geo_json_2f7c9d44ecf7f292d93e0941bf48e870_styler(feature)
+            Object.assign(opts, style)
+            
+            return new L.CircleMarker(latlng, opts)
+        }
+
+        function geo_json_2f7c9d44ecf7f292d93e0941bf48e870_onEachFeature(feature, layer) {
+
+            layer.on({
+                mouseout: function(e) {
+                    if(typeof e.target.setStyle === "function"){
+                            geo_json_2f7c9d44ecf7f292d93e0941bf48e870.resetStyle(e.target);
+                    }
+                },
+                mouseover: function(e) {
+                    if(typeof e.target.setStyle === "function"){
+                        const highlightStyle = geo_json_2f7c9d44ecf7f292d93e0941bf48e870_highlighter(e.target.feature)
+                        e.target.setStyle(highlightStyle);
+                    }
+                },
+            });
+        };
+        var geo_json_2f7c9d44ecf7f292d93e0941bf48e870 = L.geoJson(null, {
+                onEachFeature: geo_json_2f7c9d44ecf7f292d93e0941bf48e870_onEachFeature,
+            
+                style: geo_json_2f7c9d44ecf7f292d93e0941bf48e870_styler,
+                pointToLayer: geo_json_2f7c9d44ecf7f292d93e0941bf48e870_pointToLayer,
+            ...{
+}
+        });
+
+        function geo_json_2f7c9d44ecf7f292d93e0941bf48e870_add (data) {
+            geo_json_2f7c9d44ecf7f292d93e0941bf48e870
+                .addData(data);
+        }
+            geo_json_2f7c9d44ecf7f292d93e0941bf48e870_add({"bbox": [-79.24480000000001, 40.60779999999998, -78.53039999999999, 41.1609], "features": [{"bbox": [-79.2048, 41.1253, -79.2048, 41.1253], "geometry": {"coordinates": [-79.2048, 41.1253], "type": "Point"}, "id": "9873", "properties": {"__folium_color": "red", "address": "836 Toadtown Road", "city_or_county": "Summerville", "date": "2016-03-09", "incident_characteristics": "Shots Fired - No Injuries||Domestic Violence||Under the influence of alcohol or drugs (only applies to the subject/suspect/perpetrator )", "incident_id": 525735, "incident_url": "http://www.gunviolencearchive.org/incident/525735", "index_right": 0, "latitude": 41.1253, "location_center": "Punxsutanwney", "location_description": null, "longitude": -79.2048, "n_injured": 0, "n_killed": 0, "state": "Pennsylvania"}, "type": "Feature"}, {"bbox": [-78.8525, 40.78119999999999, -78.8525, 40.78119999999999], "geometry": {"coordinates": [-78.8525, 40.78119999999999], "type": "Point"}, "id": "18359", "properties": {"__folium_color": "red", "address": "Arcadia Road", "city_or_county": "Arcadia", "date": "2016-05-03", "incident_characteristics": "Shot - Dead (murder, accidental, suicide)", "incident_id": 558763, "incident_url": "http://www.gunviolencearchive.org/incident/558763", "index_right": 0, "latitude": 40.7812, "location_center": "Punxsutanwney", "location_description": null, "longitude": -78.8525, "n_injured": 0, "n_killed": 1, "state": "Pennsylvania"}, "type": "Feature"}, {"bbox": [-79.24480000000001, 40.8791, -79.24480000000001, 40.8791], "geometry": {"coordinates": [-79.24480000000001, 40.8791], "type": "Point"}, "id": "27549", "properties": {"__folium_color": "red", "address": "W Main Street", "city_or_county": "Dayton", "date": "2016-07-02", "incident_characteristics": "Shot - Wounded/Injured||Home Invasion||Home Invasion - subject/suspect/perpetrator injured||Defensive Use||Defensive Use - Crime occurs, victim shoots subject/suspect/perpetrator||Defensive Use - Stand Your Ground/Castle Doctrine established", "incident_id": 595938, "incident_url": "http://www.gunviolencearchive.org/incident/595938", "index_right": 0, "latitude": 40.8791, "location_center": "Punxsutanwney", "location_description": null, "longitude": -79.2448, "n_injured": 1, "n_killed": 0, "state": "Pennsylvania"}, "type": "Feature"}, {"bbox": [-78.6536, 41.082, -78.6536, 41.082], "geometry": {"coordinates": [-78.6536, 41.082], "type": "Point"}, "id": "30886", "properties": {"__folium_color": "red", "address": null, "city_or_county": "Clearfield (county)", "date": "2016-07-22", "incident_characteristics": "Shot - Wounded/Injured||Non-Aggression Incident||Accidental Shooting||Accidental Shooting - Injury||Accidental/Negligent Discharge||Self-Inflicted (not suicide or suicide attempt - NO PERP)", "incident_id": 612476, "incident_url": "http://www.gunviolencearchive.org/incident/612476", "index_right": 0, "latitude": 41.082, "location_center": "Punxsutanwney", "location_description": null, "longitude": -78.6536, "n_injured": 1, "n_killed": 0, "state": "Pennsylvania"}, "type": "Feature"}, {"bbox": [-79.08469999999998, 40.6346, -79.08469999999998, 40.6346], "geometry": {"coordinates": [-79.08469999999998, 40.6346], "type": "Point"}, "id": "42903", "properties": {"__folium_color": "red", "address": "Airport Road", "city_or_county": "Indiana", "date": "2016-10-02", "incident_characteristics": "Shot - Wounded/Injured||Non-Aggression Incident||Accidental Shooting||Accidental Shooting - Injury||Accidental/Negligent Discharge||Thought gun was unloaded||Playing with gun||Child Involved Incident||Child injured (not child shooter)", "incident_id": 669115, "incident_url": "http://www.gunviolencearchive.org/incident/669115", "index_right": 0, "latitude": 40.6346, "location_center": "Punxsutanwney", "location_description": null, "longitude": -79.0847, "n_injured": 1, "n_killed": 0, "state": "Pennsylvania"}, "type": "Feature"}, {"bbox": [-78.9304, 40.73640000000001, -78.9304, 40.73640000000001], "geometry": {"coordinates": [-78.9304, 40.73640000000001], "type": "Point"}, "id": "65695", "properties": {"__folium_color": "red", "address": "5000 block of Purchase Line Rd", "city_or_county": "Commodore", "date": "2017-02-20", "incident_characteristics": "Non-Shooting Incident||Gun(s) stolen from owner", "incident_id": 784091, "incident_url": "http://www.gunviolencearchive.org/incident/784091", "index_right": 0, "latitude": 40.7364, "location_center": "Punxsutanwney", "location_description": "Green Twp", "longitude": -78.9304, "n_injured": 0, "n_killed": 0, "state": "Pennsylvania"}, "type": "Feature"}, {"bbox": [-78.9465, 40.6465, -78.9465, 40.6465], "geometry": {"coordinates": [-78.9465, 40.6465], "type": "Point"}, "id": "66673", "properties": {"__folium_color": "red", "address": "Route 580", "city_or_county": "Indiana (county)", "date": "2017-02-26", "incident_characteristics": "Gun(s) stolen from owner", "incident_id": 784081, "incident_url": "http://www.gunviolencearchive.org/incident/784081", "index_right": 0, "latitude": 40.6465, "location_center": "Punxsutanwney", "location_description": "Green Twp", "longitude": -78.9465, "n_injured": 0, "n_killed": 0, "state": "Pennsylvania"}, "type": "Feature"}, {"bbox": [-78.7084, 40.66409999999999, -78.7084, 40.66409999999999], "geometry": {"coordinates": [-78.7084, 40.66409999999999], "type": "Point"}, "id": "72707", "properties": {"__folium_color": "red", "address": "Kirkpatrick St", "city_or_county": "Hastings", "date": "2017-04-04", "incident_characteristics": "Non-Shooting Incident||Drug involvement||ATF/LE Confiscation/Raid/Arrest||Possession (gun(s) found during commission of other crimes)||Possession of gun by felon or prohibited person", "incident_id": 813338, "incident_url": "http://www.gunviolencearchive.org/incident/813338", "index_right": 0, "latitude": 40.6641, "location_center": "Punxsutanwney", "location_description": null, "longitude": -78.7084, "n_injured": 0, "n_killed": 0, "state": "Pennsylvania"}, "type": "Feature"}, {"bbox": [-79.18739999999998, 40.96509999999999, -79.18739999999998, 40.96509999999999], "geometry": {"coordinates": [-79.18739999999998, 40.96509999999999], "type": "Point"}, "id": "73419", "properties": {"__folium_color": "red", "address": "693 E Market Street", "city_or_county": "Punxsutawney", "date": "2017-04-08", "incident_characteristics": "Shot - Wounded/Injured||Non-Aggression Incident||Accidental Shooting||Accidental Shooting - Injury||Accidental/Negligent Discharge", "incident_id": 816113, "incident_url": "http://www.gunviolencearchive.org/incident/816113", "index_right": 0, "latitude": 40.9651, "location_center": "Punxsutanwney", "location_description": null, "longitude": -79.1874, "n_injured": 1, "n_killed": 0, "state": "Pennsylvania"}, "type": "Feature"}, {"bbox": [-79.18739999999998, 40.96509999999999, -79.18739999999998, 40.96509999999999], "geometry": {"coordinates": [-79.18739999999998, 40.96509999999999], "type": "Point"}, "id": "73534", "properties": {"__folium_color": "red", "address": "693 E Market St", "city_or_county": "Punxsutawney", "date": "2017-04-08", "incident_characteristics": "Shot - Wounded/Injured||Non-Aggression Incident||Accidental Shooting||Accidental Shooting - Injury||Accidental/Negligent Discharge", "incident_id": 816105, "incident_url": "http://www.gunviolencearchive.org/incident/816105", "index_right": 0, "latitude": 40.9651, "location_center": "Punxsutanwney", "location_description": "Timblin Borough", "longitude": -79.1874, "n_injured": 1, "n_killed": 0, "state": "Pennsylvania"}, "type": "Feature"}, {"bbox": [-78.9414, 40.7045, -78.9414, 40.7045], "geometry": {"coordinates": [-78.9414, 40.7045], "type": "Point"}, "id": "86202", "properties": {"__folium_color": "red", "address": "Lovejoy Rd", "city_or_county": "Commodore", "date": "2017-06-17", "incident_characteristics": "Shot - Dead (murder, accidental, suicide)", "incident_id": 869496, "incident_url": "http://www.gunviolencearchive.org/incident/869496", "index_right": 0, "latitude": 40.7045, "location_center": "Punxsutanwney", "location_description": "Green Township/Indiana County", "longitude": -78.9414, "n_injured": 0, "n_killed": 1, "state": "Pennsylvania"}, "type": "Feature"}, {"bbox": [-79.1248, 40.65319999999999, -79.1248, 40.65319999999999], "geometry": {"coordinates": [-79.1248, 40.65319999999999], "type": "Point"}, "id": "100290", "properties": {"__folium_color": "red", "address": "Thompson Rd", "city_or_county": "White Township", "date": "2017-09-09", "incident_characteristics": "Non-Shooting Incident||Gun(s) stolen from owner", "incident_id": 931461, "incident_url": "http://www.gunviolencearchive.org/incident/931461", "index_right": 0, "latitude": 40.6532, "location_center": "Punxsutanwney", "location_description": null, "longitude": -79.1248, "n_injured": 0, "n_killed": 0, "state": "Pennsylvania"}, "type": "Feature"}, {"bbox": [-78.9414, 40.7045, -78.9414, 40.7045], "geometry": {"coordinates": [-78.9414, 40.7045], "type": "Point"}, "id": "102538", "properties": {"__folium_color": "red", "address": "Lovejoy Ave", "city_or_county": "Green Township", "date": "2017-09-24", "incident_characteristics": "Non-Shooting Incident||Non-Aggression Incident||Gun(s) stolen from owner", "incident_id": 942945, "incident_url": "http://www.gunviolencearchive.org/incident/942945", "index_right": 0, "latitude": 40.7045, "location_center": "Punxsutanwney", "location_description": null, "longitude": -78.9414, "n_injured": 0, "n_killed": 0, "state": "Pennsylvania"}, "type": "Feature"}, {"bbox": [-78.9205, 40.7156, -78.9205, 40.7156], "geometry": {"coordinates": [-78.9205, 40.7156], "type": "Point"}, "id": "103335", "properties": {"__folium_color": "red", "address": "253 Walnut Rd", "city_or_county": "Commodore", "date": "2017-09-29", "incident_characteristics": "Shot - Wounded/Injured||Institution/Group/Business||Accidental Shooting||Accidental Shooting - Injury||Accidental/Negligent Discharge", "incident_id": 950864, "incident_url": "http://www.gunviolencearchive.org/incident/950864", "index_right": 0, "latitude": 40.7156, "location_center": "Punxsutanwney", "location_description": "Purchase Line Elementary School South", "longitude": -78.9205, "n_injured": 1, "n_killed": 0, "state": "Pennsylvania"}, "type": "Feature"}, {"bbox": [-79.0075, 40.60779999999998, -79.0075, 40.60779999999998], "geometry": {"coordinates": [-79.0075, 40.60779999999998], "type": "Point"}, "id": "104265", "properties": {"__folium_color": "red", "address": "N Harmony Rd", "city_or_county": "Cherryhill Township", "date": "2017-10-04", "incident_characteristics": "Non-Shooting Incident||Non-Aggression Incident||Gun(s) stolen from owner", "incident_id": 962394, "incident_url": "http://www.gunviolencearchive.org/incident/962394", "index_right": 0, "latitude": 40.6078, "location_center": "Punxsutanwney", "location_description": null, "longitude": -79.0075, "n_injured": 0, "n_killed": 0, "state": "Pennsylvania"}, "type": "Feature"}, {"bbox": [-78.53039999999999, 40.9767, -78.53039999999999, 40.9767], "geometry": {"coordinates": [-78.53039999999999, 40.9767], "type": "Point"}, "id": "112469", "properties": {"__folium_color": "red", "address": "717 South St", "city_or_county": "Curwensville", "date": "2017-11-25", "incident_characteristics": "Non-Shooting Incident||Non-Aggression Incident||Drug involvement||ATF/LE Confiscation/Raid/Arrest||Stolen/Illegally owned gun{s} recovered during arrest/warrant", "incident_id": 996359, "incident_url": "http://www.gunviolencearchive.org/incident/996359", "index_right": 0, "latitude": 40.9767, "location_center": "Punxsutanwney", "location_description": null, "longitude": -78.5304, "n_injured": 0, "n_killed": 0, "state": "Pennsylvania"}, "type": "Feature"}, {"bbox": [-79.10809999999998, 40.9022, -79.10809999999998, 40.9022], "geometry": {"coordinates": [-79.10809999999998, 40.9022], "type": "Point"}, "id": "114560", "properties": {"__folium_color": "red", "address": "Neal Flat Rd", "city_or_county": "Smicksburg", "date": "2017-12-08", "incident_characteristics": "Shot - Wounded/Injured||Accidental Shooting||Accidental Shooting - Injury", "incident_id": 1004976, "incident_url": "http://www.gunviolencearchive.org/incident/1004976", "index_right": 0, "latitude": 40.9022, "location_center": "Punxsutanwney", "location_description": null, "longitude": -79.1081, "n_injured": 1, "n_killed": 0, "state": "Pennsylvania"}, "type": "Feature"}, {"bbox": [-78.8395, 40.84830000000001, -78.8395, 40.84830000000001], "geometry": {"coordinates": [-78.8395, 40.84830000000001], "type": "Point"}, "id": "114666", "properties": {"__folium_color": "red", "address": "Fire Tower Rd", "city_or_county": "Glen Campbell", "date": "2017-12-09", "incident_characteristics": "Shot - Wounded/Injured||Accidental Shooting||Accidental Shooting - Injury||Hunting accident", "incident_id": 1004974, "incident_url": "http://www.gunviolencearchive.org/incident/1004974", "index_right": 0, "latitude": 40.8483, "location_center": "Punxsutanwney", "location_description": null, "longitude": -78.8395, "n_injured": 1, "n_killed": 0, "state": "Pennsylvania"}, "type": "Feature"}, {"bbox": [-79.0089, 40.6692, -79.0089, 40.6692], "geometry": {"coordinates": [-79.0089, 40.6692], "type": "Point"}, "id": "117122", "properties": {"__folium_color": "red", "address": "Morris St", "city_or_county": "Clymer", "date": "2017-12-25", "incident_characteristics": "Non-Shooting Incident||Non-Aggression Incident||Gun(s) stolen from owner", "incident_id": 1017558, "incident_url": "http://www.gunviolencearchive.org/incident/1017558", "index_right": 0, "latitude": 40.6692, "location_center": "Punxsutanwney", "location_description": null, "longitude": -79.0089, "n_injured": 0, "n_killed": 0, "state": "Pennsylvania"}, "type": "Feature"}, {"bbox": [-79.08229999999999, 41.1609, -79.08229999999999, 41.1609], "geometry": {"coordinates": [-79.08229999999999, 41.1609], "type": "Point"}, "id": "117482", "properties": {"__folium_color": "red", "address": "328 W Main St", "city_or_county": "Brookville", "date": "2017-12-27", "incident_characteristics": "Institution/Group/Business||Non-Shooting Incident||Non-Aggression Incident||Gun shop robbery or burglary", "incident_id": 1016250, "incident_url": "http://www.gunviolencearchive.org/incident/1016250", "index_right": 0, "latitude": 41.1609, "location_center": "Punxsutanwney", "location_description": "DSD Sporting Goods", "longitude": -79.0823, "n_injured": 0, "n_killed": 0, "state": "Pennsylvania"}, "type": "Feature"}, {"bbox": [-79.0501, 40.77559999999998, -79.0501, 40.77559999999998], "geometry": {"coordinates": [-79.0501, 40.77559999999998], "type": "Point"}, "id": "121907", "properties": {"__folium_color": "red", "address": "Manor St", "city_or_county": "Marion Center", "date": "2018-01-25", "incident_characteristics": "Shot - Wounded/Injured||Institution/Group/Business", "incident_id": 1036235, "incident_url": "http://www.gunviolencearchive.org/incident/1036235", "index_right": 0, "latitude": 40.7756, "location_center": "Punxsutanwney", "location_description": null, "longitude": -79.0501, "n_injured": 1, "n_killed": 0, "state": "Pennsylvania"}, "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+    geo_json_2f7c9d44ecf7f292d93e0941bf48e870.bindTooltip(
+    function(layer){
+    let div = L.DomUtil.create('div');
+    
+    let handleObject = feature => {
+        if (feature === null) {
+            return '';
+        } else if (typeof(feature)=='object') {
+            return JSON.stringify(feature);
+        } else {
+            return feature;
+        }
+    }
+    let fields = ["incident_id", "date", "state", "city_or_county", "address", "n_killed", "n_injured", "incident_url", "incident_characteristics", "location_description", "latitude", "longitude", "index_right", "location_center"];
+    let aliases = ["incident_id", "date", "state", "city_or_county", "address", "n_killed", "n_injured", "incident_url", "incident_characteristics", "location_description", "latitude", "longitude", "index_right", "location_center"];
+    let table = '<table>' +
+        String(
+        fields.map(
+        (v,i)=>
+        `<tr>
+            <th>${aliases[i]}</th>
+            
+            <td>${handleObject(layer.feature.properties[v])}</td>
+        </tr>`).join(''))
+    +'</table>';
+    div.innerHTML=table;
+    
+    return div
+    }
+    ,{
+  "sticky": true,
+  "className": "foliumtooltip",
+});
+                     
+    
+            geo_json_2f7c9d44ecf7f292d93e0941bf48e870.addTo(map_c7bc321ece08f95ebe72d0e84425c029);
+        
+</script>
+</html>
