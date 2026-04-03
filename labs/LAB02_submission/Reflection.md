@@ -13,3 +13,5 @@ Consider:
 ## Your Reflection Below
 
 PUT YOUR REFLECTION HERE.
+In the lab we used out laptop to run the
+
